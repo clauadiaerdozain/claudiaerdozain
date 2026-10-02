@@ -6,7 +6,7 @@
 <title>Claudia Erdozain — Agente de seguros</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #F6F4EE;
@@ -54,10 +54,10 @@
     margin: 0 auto;
     width: 100%;
   }
-  .brand { font-weight: 800; font-size: clamp(1.15rem, 2.8vw, 1.5rem); }
-  .brand small { display: block; font-weight: 600; font-size: 0.55em; color: var(--ink-soft); margin-top: 3px; letter-spacing: 0.02em; }
+  .brand { font-family: "Lora", serif; font-weight: 700; font-size: clamp(1.1rem, 2.6vw, 1.4rem); color: var(--clay); letter-spacing: 0.04em; text-transform: uppercase; }
+  .brand small { display: block; font-family: "Figtree", sans-serif; font-weight: 600; font-size: 0.5em; color: var(--ink-soft); margin-top: 4px; letter-spacing: 0.04em; text-transform: none; }
   .brand-wrap { display: flex; align-items: center; gap: 12px; }
-  .avatar { width: clamp(36px,4.6vw,48px); height: clamp(36px,4.6vw,48px); border-radius: 50%; object-fit: cover; object-position: center 20%; border: 1px solid var(--line); }
+  .avatar { width: clamp(52px,6.4vw,68px); height: clamp(52px,6.4vw,68px); border-radius: 50%; object-fit: cover; object-position: center 20%; border: 1px solid var(--line); }
 
   main {
     flex: 1;
@@ -72,11 +72,12 @@
     width: 100%;
   }
   .copy h1 {
+    font-family: "Lora", serif;
     font-size: clamp(1.6rem, 3.6vw, 2.7rem);
-    line-height: 1.15;
+    line-height: 1.18;
     margin: 0 0 clamp(14px,2.4vh,26px);
     font-weight: 700;
-    color: var(--pine);
+    color: var(--pine-deep);
   }
   .copy p {
     font-size: clamp(0.88rem, 1.7vw, 1.08rem);
@@ -93,7 +94,7 @@
   .help { font-weight: 600; color: var(--pine); margin: 0 0 clamp(14px,2.2vh,22px); font-size: clamp(0.88rem, 1.7vw, 1.05rem); }
   .ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: clamp(18px,2.8vh,30px); }
   .btn {
-    padding: clamp(8px,1.4vh,13px) clamp(14px,2vw,22px);
+    padding: clamp(10px,1.6vh,15px) clamp(20px,2.6vw,28px);
     border-radius: var(--radius);
     font-weight: 600;
     font-size: clamp(0.8rem, 1.4vw, 0.95rem);
@@ -102,7 +103,21 @@
   }
   .btn-primary { background: var(--pine); color: #F6F4EE; }
   .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-  .btn-whatsapp { background: #25D366; color: #0b2b16; }
+  .btn-whatsapp { background: var(--clay); color: #fff; border-radius: 999px; }
+  .cta-wrap { position: relative; display: inline-block; }
+  .tap-hint {
+    position: absolute;
+    right: -6px;
+    bottom: -14px;
+    font-size: 1.5rem;
+    transform: rotate(-12deg);
+    animation: tap-bounce 1.6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes tap-bounce {
+    0%, 100% { transform: translateY(0) rotate(-12deg); }
+    50% { transform: translateY(-6px) rotate(-12deg); }
+  }
 
   .chips { display: flex; gap: 8px; flex-wrap: wrap; }
   .chip {
@@ -163,13 +178,15 @@
 
 <main>
   <div class="copy">
-    <h1>Que tu familia nunca dependa de la suerte.</h1>
-    <p>No necesitas tener miedo de lo que pueda pasar. Necesitas saber si lo que ya tienes te protege de verdad.</p>
+    <h1>¿Tienes claro qué cubre tu seguro?</h1>
+    <p>Necesitas saber si lo que ya tienes contratado te protege de verdad.</p>
     <p class="bio">Como profesional de la salud, he visto de cerca lo que pasa cuando una familia no está preparada. Por eso, como agente de seguros, puedo ayudarte.</p>
     <p class="help">Podemos revisar tu seguro actual y ver si de verdad te cubre lo que necesitas.</p>
     <div class="ctas">
-      <a class="btn btn-primary btn-whatsapp" href="https://wa.me/34655593679?text=Hola%20Claudia%2C%20he%20visto%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn btn-ghost" href="mailto:claudiaerdozainseguros@gmail.com">Escríbeme por email</a>
+      <div class="cta-wrap">
+        <a class="btn btn-primary btn-whatsapp" href="https://wa.me/34655593679?text=Hola%20Claudia%2C%20he%20visto%20tu%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20hacer%20una%20consulta" target="_blank" rel="noopener">WhatsApp</a>
+        <span class="tap-hint" aria-hidden="true">👆</span>
+      </div>
     </div>
     <div class="chips">
       <span class="chip">Vida</span>
@@ -185,7 +202,6 @@
 
 <footer>
   <span>Claudia Erdozain · Agente de seguros</span>
-  <span>655 59 36 79</span>
 </footer>
 
 </body>
